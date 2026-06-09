@@ -820,6 +820,8 @@ section {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     box-shadow: var(--shadow-soft);
 }
 
@@ -845,7 +847,7 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    margin-bottom: 25px;
+    margin: 0 auto 25px auto;
     transition: var(--transition-smooth);
     box-shadow: 0 8px 20px rgba(13, 35, 58, 0.15);
 }
@@ -871,6 +873,9 @@ section {
     gap: 12px;
     border-top: 1px solid var(--color-border);
     padding-top: 20px;
+    align-self: center;
+    width: fit-content;
+    text-align: left;
 }
 
 .service-list li {
@@ -2416,16 +2421,9 @@ section {
     .service-card {
         flex: 0 0 85%;
         scroll-snap-align: center;
-        align-items: center;
-        text-align: center;
     }
     .service-icon-wrapper {
         margin: 0 auto 20px auto;
-    }
-    .service-list {
-        text-align: left;
-        align-self: center;
-        width: fit-content;
     }
     .commitments-grid {
         display: flex;
