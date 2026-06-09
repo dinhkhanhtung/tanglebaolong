@@ -107,25 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function bindDotsEvents() {
-        refreshSlidesArray();
-        dots.forEach((dot, idx) => {
-            const newDot = dot.cloneNode(true);
-            dot.parentNode.replaceChild(newDot, dot);
-        });
-        refreshSlidesArray();
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => {
-                showSlide(idx);
-                startSlideTimer();
-            });
-        });
-    }
-
     if (slider) {
         // Khởi động trượt ngay slide 1 ban đầu
         showSlide(0);
-        bindDotsEvents();
+        
+        // Sử dụng Event Delegation cho các nút tròn (dots) - gán 1 lần duy nhất lên container cha
+        if (dotsContainer) {
+            dotsContainer.addEventListener('click', (e) => {
+                const dot = e.target.closest('.dot');
+                if (dot) {
+                    const idx = parseInt(dot.getAttribute('data-index') || 0);
+                    showSlide(idx);
+                    startSlideTimer();
+                }
+            });
+        }
+        
         startSlideTimer();
 
         if (prevBtn && nextBtn) {
@@ -388,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newDot.setAttribute('data-index', newSlideIndex);
             dotsContainer.appendChild(newDot);
 
-            bindDotsEvents();
+            // Tự động nhận diện sự kiện click nhờ Event Delegation ở dotsContainer
 
             reviewModal.classList.remove('active');
             document.body.style.overflow = 'auto';
