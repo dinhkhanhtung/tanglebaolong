@@ -169,6 +169,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mở sẵn câu hỏi FAQ đầu tiên khi tải trang
+    const firstFaq = document.querySelector('.faq-accordion .faq-item');
+    if (firstFaq) {
+        firstFaq.classList.add('active');
+        const firstAnswer = firstFaq.querySelector('.faq-answer');
+        if (firstAnswer) {
+            setTimeout(() => {
+                firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px';
+            }, 50);
+        }
+        const firstIcon = firstFaq.querySelector('.faq-icon i');
+        if (firstIcon) {
+            firstIcon.className = 'fa-solid fa-minus';
+        }
+    }
+
     /* ==========================================
        5. GALLERY FILTERING
        ========================================== */

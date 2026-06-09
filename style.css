@@ -851,7 +851,7 @@ section {
 }
 
 .service-card-title {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--color-navy);
@@ -1128,14 +1128,6 @@ section {
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-grid #gallery-item-2 img,
-.gallery-grid #gallery-item-7 img {
-    height: 320px;
-}
-.gallery-grid #gallery-item-4 img,
-.gallery-grid #gallery-item-9 img {
-    height: 180px;
-}
 
 .gallery-overlay {
     position: absolute;
@@ -1606,7 +1598,6 @@ section {
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg);
     color: var(--color-lotus);
 }
 
@@ -1939,6 +1930,14 @@ section {
     height: 55px;
     border-radius: 50%;
     border: 2px solid var(--color-gold);
+}
+
+.footer-logo .logo-title {
+    color: var(--color-white) !important;
+}
+
+.footer-logo .logo-subtitle {
+    color: var(--color-gold) !important;
 }
 
 .footer-about-text {
