@@ -567,4 +567,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right').forEach(elem => {
         revealObserver.observe(elem);
     });
+
+    /* ==========================================
+       10. BACK TO TOP FUNCTIONALITY
+       ========================================== */
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
